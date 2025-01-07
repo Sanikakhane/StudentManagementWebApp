@@ -1,11 +1,10 @@
-﻿@page "/studentoverview"
+﻿
+@page "/studentoverview"
 
-@attribute [StreamRendering(true)]
-
-@if (students == null)
+@if (students == null || students.Count == 0)
 {
     <div class="text-center">
-        <p><em>Loading...</em></p>
+        <p><em>No students available.</em></p>
     </div>
 }
 else
@@ -20,6 +19,7 @@ else
                         <th>Name</th>
                         <th>Age</th>
                         <th>Marks</th>
+                        <th>Remove Student</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,11 +29,14 @@ else
                             <td>@student.Id</td>
                             <td>@student.Name</td>
                             <td>@student.Age</td>
-                             <td>
-                                <a href="@($"studentmarksbypage/{student.Id}")" class="btn btn-outline-primary btn-sm mb-1">
-                                      Marks
+                            <td>
+                                <a href="@($"studentmarksbypage/{student.Id}")" class="btn btn-outline-primary btn-sm">
+                                    View Marks
                                 </a>
-                             </td>
+                            </td>
+                            <td>
+                                <RemoveButton student="student"></RemoveButton>
+                            </td>
                         </tr>
                     }
                 </tbody>

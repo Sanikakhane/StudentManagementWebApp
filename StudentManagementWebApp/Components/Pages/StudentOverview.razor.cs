@@ -1,14 +1,14 @@
-﻿namespace StudentManagementWebApp.Components.Pages
+﻿using Microsoft.AspNetCore.Components;
+
+namespace StudentManagementWebApp.Components.Pages
 {
     public partial class StudentOverview
     {
-        private List<Student> students { get; set; } = default!;
-        private int count;
+        private List<Student> students = new();
 
         protected override void OnInitialized()
         {
-            students = StudentManager.GetList();
-            count = students.Count;
+            students = StudentManager.students;
         }
     }
 }

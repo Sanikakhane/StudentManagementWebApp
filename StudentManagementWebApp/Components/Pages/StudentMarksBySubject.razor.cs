@@ -19,7 +19,7 @@ namespace StudentManagementWebApp.Components.Pages
         
         protected override  void OnInitialized()
         {
-                var students = StudentManager.GetList();
+                var students = StudentManager.students;
                 Student = students.SingleOrDefault(s => s.Id == Id);
                 Marks = StudentManager.GetMarksById(Id);
 
