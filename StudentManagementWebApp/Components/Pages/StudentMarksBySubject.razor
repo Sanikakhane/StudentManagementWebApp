@@ -1,0 +1,49 @@
+﻿@page "/studentmarksbypage/{Id:int}"
+
+@inject NavigationManager NavigationManager
+
+<h2 class="text-primary text-center mt-4">Student Details</h2>
+
+@if (Student == null || Marks == null || Subjects == null)
+{
+    <p><em>Loading student details...</em></p>
+}
+else
+{
+    <div class="container mt-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h4 class="card-title">Student Information</h4>
+                <p><strong>ID:</strong> @Student.Id</p>
+                <p><strong>Name:</strong> @Student.Name</p>
+                <p><strong>Age:</strong> @Student.Age</p>
+            </div>
+        </div>
+
+        <h4 class="mt-4">Marks by Subject</h4>
+        @if (!Marks.Any() || !Subjects.Any())
+        {
+            <p>No marks or subjects available for this student.</p>
+        }
+        else
+        {
+            <table class="table table-striped table-bordered mt-3">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Subjects.Count; i++)
+                    {
+                        <tr>
+                            <td>@Subjects[i]</td>
+                            <td>@(i < Marks.Count ? Marks[i] : "N/A")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+}

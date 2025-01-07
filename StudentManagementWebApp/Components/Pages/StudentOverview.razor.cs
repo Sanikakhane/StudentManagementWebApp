@@ -5,10 +5,9 @@
         private List<Student> students { get; set; } = default!;
         private int count;
 
-        protected async override Task OnInitializedAsync()
+        protected override void OnInitialized()
         {
-            await Task.Delay(2000);
-            students = Student.GetList();
+            students = StudentManager.GetList();
             count = students.Count;
         }
     }
