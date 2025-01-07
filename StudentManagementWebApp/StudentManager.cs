@@ -31,5 +31,18 @@
                 students.Remove(studentToRemove);
             }
         }
+
+        public static void updateStudent(Student student)
+        {
+            Student studentToUpdate = students.SingleOrDefault(s => s.Id == student.Id);
+
+            if (studentToUpdate != null)
+            {
+                studentToUpdate.Name = student.Name;
+                studentToUpdate.Age = student.Age;
+                studentToUpdate.Marks = student.Marks;
+            }
+
+        }
     }
 }

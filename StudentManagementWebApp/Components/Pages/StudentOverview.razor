@@ -30,6 +30,7 @@ else
                         <th>Age</th>
                         <th>Marks</th>
                         <th>Remove Student</th>
+                        <th>Update Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,12 +41,15 @@ else
                             <td>@student.Name</td>
                             <td>@student.Age</td>
                             <td>
-                                <a href="@($"studentmarksbypage/{student.Id}")" class="btn btn-outline-primary btn-sm">
+                                <a href="@($"studentmarksbystubject/{student.Id}")" class="btn btn-outline-primary btn-sm">
                                     View Marks
                                 </a>
                             </td>
                             <td>
                                 <RemoveButton student="student"></RemoveButton>
+                            </td
+                            <td>
+                                <UpdateButton student="student"></UpdateButton>
                             </td>
                         </tr>
                     }
