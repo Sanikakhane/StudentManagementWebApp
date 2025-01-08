@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using StudentManagementWebApp;
 using StudentManagementWebApp.Components;
 using StudentManagementWebApp.Data;
 
@@ -8,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-
+builder.Services.AddScoped<StudentManager>();
 
 builder.Services.AddDbContextFactory<AppDbContext>(options =>
     options.UseSqlServer(

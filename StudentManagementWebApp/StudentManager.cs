@@ -23,26 +23,25 @@
 
             return student?.Marks ?? new List<int>();
         }
-        public static void removeStudent(int id)
+        public List<Student> GetStudents()
         {
-            Student studentToRemove = students.FirstOrDefault(s => s.Id == id);
-            if (studentToRemove != null)
-            {
-                students.Remove(studentToRemove);
-            }
+            return students;
         }
-
-        public static void updateStudent(Student student)
+        public async Task SaveStudentAsync(Student student)
         {
-            Student studentToUpdate = students.SingleOrDefault(s => s.Id == student.Id);
-
-            if (studentToUpdate != null)
+            var existingStudent = students.SingleOrDefault(s => s.Id == student.Id);
+            if (existingStudent != null)
             {
-                studentToUpdate.Name = student.Name;
-                studentToUpdate.Age = student.Age;
-                studentToUpdate.Marks = student.Marks;
+                existingStudent.Name = student.Name;
+                existingStudent.Age = student.Age;
+                existingStudent.Marks = student.Marks;
+            }
+            else
+            {
+                students.Add(student);
             }
 
+            await Task.CompletedTask;
         }
     }
 }

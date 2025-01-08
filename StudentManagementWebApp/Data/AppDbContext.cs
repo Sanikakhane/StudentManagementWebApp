@@ -23,7 +23,8 @@ namespace StudentManagementWebApp.Data
             modelBuilder.Entity<Student>().HasData(new Student(8, "Grace", 22, new List<int> { 70, 72, 68 }));
             modelBuilder.Entity<Student>().HasData(new Student(9, "Hannah", 21, new List<int> { 90, 88, 85 }));
             modelBuilder.Entity<Student>().HasData(new Student(10, "Ivy", 23, new List<int> { 80, 85, 78 }));
-            
+            modelBuilder.Entity<Student>().HasData(new Student(11, "Ivy", 23, new List<int> { 80, 85, 78 }));
+
         }
 
 

@@ -47,9 +47,12 @@ else
                             </td>
                             <td>
                                 <RemoveButton student="student"></RemoveButton>
-                            </td
+                            </td>
                             <td>
-                                <UpdateButton student="student"></UpdateButton>
+                                <a href="@($"updatedetails/{student.Id}")" class="btn btn-outline-primary btn-sm">
+                                    Update
+                                </a>
+
                             </td>
                         </tr>
                     }
