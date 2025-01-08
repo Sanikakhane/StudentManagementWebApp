@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using StudentManagementWebApp.Components;
+using StudentManagementWebApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,8 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-var app = builder.Build();
 
+
+builder.Services.AddDbContextFactory<AppDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration["ConnectionStrings:DefaultConnection"]
+        )
+);
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
