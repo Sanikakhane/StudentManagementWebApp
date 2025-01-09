@@ -9,6 +9,7 @@ namespace StudentManagementWebApp
         public int Age { get; set; }
         public List<int> Marks { get; set; }
 
+        public Student() { }    
         public Student(int id, string? name, int age, List<int> marks)
         {
             Id = id;

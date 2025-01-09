@@ -12,7 +12,7 @@ namespace StudentManagementWebApp.Components
             Student studentToRemove = StudentManager.students.FirstOrDefault(s => s.Id == student.Id);
             if (studentToRemove != null)
             {
-                StudentManager.students.ToList().Remove(studentToRemove);
+                StudentManager.students.Remove(studentToRemove);
             }
             
             NavigationManager.NavigateTo("/studentoverview");

@@ -1,11 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using StudentManagementWebApp;
 using StudentManagementWebApp.Components;
-using StudentManagementWebApp.Contracts.Repositories;
-using StudentManagementWebApp.Contracts.Services;
 using StudentManagementWebApp.Data;
-using StudentManagementWebApp.Repositories;
-using StudentManagementWebApp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,9 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddScoped<IStudentRepository, StudentRepository>();
-//builder.Services.AddScoped<StudentManager>();
-builder.Services.AddScoped<IStudentService, StudentService>();  
+
 
 builder.Services.AddDbContextFactory<AppDbContext>(options =>
     options.UseSqlServer(

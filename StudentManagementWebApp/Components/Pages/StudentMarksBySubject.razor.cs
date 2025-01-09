@@ -21,7 +21,7 @@ namespace StudentManagementWebApp.Components.Pages
         {
                 var students = StudentManager.students;
                 Student = students.SingleOrDefault(s => s.Id == Id);
-                //Marks = StudentManager.GetMarksById(Id);
+                Marks = StudentManager.GetMarksById(Id);
 
         }
         

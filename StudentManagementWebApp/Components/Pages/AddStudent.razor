@@ -1,0 +1,47 @@
+﻿@page "/addstudent"
+
+@rendermode InteractiveServer
+
+<h3 class="text-center text-primary fw-bold mb-4">Add New Student</h3>
+
+@if (!IsSaved)
+{
+    <EditForm Model="@student" OnValidSubmit="HandleValidSubmit" class="card shadow-lg p-4 border-0">
+        <AntiforgeryToken />
+
+        <div class="mb-3 row">
+            <label for="Id" class="col-md-3 col-form-label fw-semibold text-end">Student ID:</label>
+            <div class="col-md-8">
+                <InputNumber id="Id" class="form-control" @bind-Value="@student.Id" placeholder="Enter Student ID" />
+                <ValidationMessage For="@(() => student.Id)" />
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="Name" class="col-md-3 col-form-label fw-semibold text-end">Student Name:</label>
+            <div class="col-md-8">
+                <InputText id="Name" class="form-control" @bind-Value="@student.Name" placeholder="Enter Name" />
+                <ValidationMessage For="@(() => student.Name)" />
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label for="Age" class="col-md-3 col-form-label fw-semibold text-end">Age:</label>
+            <div class="col-md-8">
+                <InputNumber id="Age" class="form-control" @bind-Value="@student.Age" placeholder="Enter Age" />
+                <ValidationMessage For="@(() => student.Age)" />
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg px-4 shadow">
+                <i class="bi bi-check-circle-fill"></i> Submit
+            </button>
+        </div>
+    </EditForm>
+}
+else
+{
+    <h4 class="text-success text-center">@message</h4>
+}
+
