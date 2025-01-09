@@ -15,7 +15,7 @@
                 new Student(9, "Hannah", 21, new List<int> { 90, 88, 85 }),
                 new Student(10, "Ivy", 23, new List<int> { 80, 85, 78 })
          };
-
+        public static List<string> Subjects = new List<string> { "Math", "Science", "English" };
         public static List<int> GetMarksById(int id)
         {
 
