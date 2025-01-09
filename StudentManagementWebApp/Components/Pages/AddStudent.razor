@@ -8,7 +8,7 @@
 {
     <EditForm Model="@student" OnValidSubmit="HandleValidSubmit" class="card shadow-lg p-4 border-0">
         <AntiforgeryToken />
-
+        <DataAnnotationsValidator/>
         <div class="mb-3 row">
             <label for="Id" class="col-md-3 col-form-label fw-semibold text-end">Student ID:</label>
             <div class="col-md-8">
