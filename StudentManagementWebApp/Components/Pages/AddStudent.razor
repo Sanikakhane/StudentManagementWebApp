@@ -9,6 +9,7 @@
     <EditForm Model="@student" OnValidSubmit="HandleValidSubmit" class="card shadow-lg p-4 border-0">
         <AntiforgeryToken />
         <DataAnnotationsValidator/>
+        <ValidationSummary/>
         <div class="mb-3 row">
             <label for="Id" class="col-md-3 col-form-label fw-semibold text-end">Student ID:</label>
             <div class="col-md-8">
@@ -39,7 +40,12 @@
                 {
                     <div class="mb-2">
                         <label for="Marks">@subject:</label>
-                        <InputNumber id="@subject" class="form-control" @bind-Value="SubjectMarks[subject]" placeholder="Enter Mark" />
+                        <InputNumber id="@subject" class="form-control" @bind-Value="SubjectMarks[subject]"
+                                     placeholder="Enter Mark" />
+                        @if (SubjectMarks[subject] < 0)
+                        {
+                            <span class="text-danger">Mark for @subject cannot be negative.</span>
+                        }
                     </div>
                 }
             </div>

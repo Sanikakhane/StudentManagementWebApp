@@ -41,7 +41,12 @@
                 {
                     <div class="mb-2">
                         <label for="Marks">@subject:</label>
-                        <InputNumber id="@subject" class="form-control" @bind-Value="SubjectMarks[subject]" placeholder="Enter Mark" />
+                        <InputNumber id="@subject" class="form-control" @bind-Value="SubjectMarks[subject]"
+                                     placeholder="Enter Mark" />
+                        @if (SubjectMarks[subject] < 0)
+                        {
+                            <span class="text-danger">Mark for @subject cannot be negative.</span>
+                        }
                     </div>
                 }
             </div>

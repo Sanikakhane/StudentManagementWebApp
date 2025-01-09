@@ -30,6 +30,12 @@ namespace StudentManagementWebApp.Components.Pages
         
         protected void HandleValidUpdate()
         {
+            bool hasInvalidMarks = SubjectMarks.Values.Any(mark => mark < 0);
+            if (hasInvalidMarks)
+            {
+                message = "Marks cannot be negative.";
+                return;
+            }
             foreach (var mark in SubjectMarks.Values)
             {
                 Marks.Add(mark);

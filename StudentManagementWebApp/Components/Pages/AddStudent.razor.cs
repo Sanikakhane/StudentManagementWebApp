@@ -28,14 +28,20 @@ namespace StudentManagementWebApp.Components.Pages
 
         private void HandleValidSubmit()
         {
-            foreach(var mark in SubjectMarks.Values)
+            bool hasInvalidMarks = SubjectMarks.Values.Any(mark => mark < 0);
+            if (hasInvalidMarks)
             {
-                Marks.Add(mark);
+                message = "Marks cannot be negative.";
+                return;
             }
+
+            Marks = SubjectMarks.Values.ToList();
             student.Marks = Marks;
-             StudentManager.students.Add(student);
-            message = "The Student is added successfully";
+
+            StudentManager.students.Add(student);
+            message = "The Student is added successfully.";
             IsSaved = true;
         }
+
     }
 }
