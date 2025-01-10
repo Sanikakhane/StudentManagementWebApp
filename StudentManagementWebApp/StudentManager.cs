@@ -15,21 +15,13 @@
                 new Student(9, "Hannah", 21, new List<int> { 90, 88, 85 }),
                 new Student(10, "Ivy", 23, new List<int> { 80, 85, 78 })
          };
-        public static List<string> Subjects = new List<string> { "Math", "Science", "English" };
+        public static List<string> Subjects = new List<string> { "Mathematics", "Science", "English" };
         public static List<int> GetMarksById(int id)
         {
 
             Student student = students.FirstOrDefault(s => s.Id == id);
 
             return student?.Marks ?? new List<int>();
-        }
-        public static void removeStudent(int id)
-        {
-            Student studentToRemove = students.FirstOrDefault(s => s.Id == id);
-            if (studentToRemove != null)
-            {
-                students.Remove(studentToRemove);
-            }
         }
 
         public static void updateStudent(Student student)

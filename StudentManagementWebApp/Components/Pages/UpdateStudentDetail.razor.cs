@@ -8,11 +8,11 @@ namespace StudentManagementWebApp.Components.Pages
         public int Id { get; set; }
 
         [SupplyParameterFromForm]
-        public Student student { get; set; }
+        public Student? student { get; set; }
 
         protected string message = string.Empty;
         protected bool IsSaved = false;
-        protected List<int> Marks { get; set; }
+        protected List<int>? Marks { get; set; }
         private List<string> Subjects = StudentManager.Subjects;
         private Dictionary<string, int> SubjectMarks = new Dictionary<string, int>();
 

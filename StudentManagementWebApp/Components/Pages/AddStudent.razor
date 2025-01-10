@@ -42,9 +42,9 @@
                         <label for="Marks">@subject:</label>
                         <InputNumber id="@subject" class="form-control" @bind-Value="SubjectMarks[subject]"
                                      placeholder="Enter Mark" />
-                        @if (SubjectMarks[subject] < 0)
+                        @if (SubjectMarks[subject] < 0 || SubjectMarks[subject]>100)
                         {
-                            <span class="text-danger">Mark for @subject cannot be negative.</span>
+                            <span class="text-danger">Mark for @subject is out of expected range.</span>
                         }
                     </div>
                 }
