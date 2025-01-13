@@ -13,10 +13,11 @@
         <div class="mb-3 row">
             <label for="Id" class="col-md-3 col-form-label fw-semibold text-end">Student ID:</label>
             <div class="col-md-8">
-                <InputNumber id="Id" class="form-control" @bind-Value="@student.Id" placeholder="Enter Student ID" />
+                <InputNumber id="Id" class="form-control" @bind-Value="@id" placeholder="Enter Student ID" disabled />
                 <ValidationMessage For="@(() => student.Id)" />
             </div>
         </div>
+
 
         <div class="mb-3 row">
             <label for="Name" class="col-md-3 col-form-label fw-semibold text-end">Student Name:</label>

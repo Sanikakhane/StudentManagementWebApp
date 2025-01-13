@@ -12,7 +12,7 @@ namespace StudentManagementWebApp.Components.Pages
 
         protected string message = string.Empty;
         protected bool IsSaved = false;
-        protected List<int>? Marks { get; set; }
+        protected List<int> Marks { get; set; }
         private List<string> Subjects = StudentManager.Subjects;
         private Dictionary<string, int> SubjectMarks = new Dictionary<string, int>();
 
@@ -24,8 +24,13 @@ namespace StudentManagementWebApp.Components.Pages
             {
                 SubjectMarks[subject] = 0;
             }
-            student = StudentManager.students.First(st => st.Id == Id);
-            Marks = new List<int>();
+            student = StudentManager.students.FirstOrDefault(st => st.Id == Id);
+            if (student == null)
+            {
+                message = "Student not found.";
+                return;
+            }
+            student.Marks = Marks;
         }
         
         protected void HandleValidUpdate()
@@ -41,6 +46,7 @@ namespace StudentManagementWebApp.Components.Pages
                 Marks.Add(mark);
             }
             student.Marks = Marks;
+
             StudentManager.updateStudent(student);
             message = "The Student is Updated successfully";
             IsSaved = true;

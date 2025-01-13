@@ -19,14 +19,18 @@
         public static List<int> GetMarksById(int id)
         {
 
-            Student student = students.FirstOrDefault(s => s.Id == id);
+            Student? student = students.FirstOrDefault(s => s.Id == id);
+            if(student == null)
+            {
+                throw new ArgumentException($"Student with {id} does not exist");
+            }
 
-            return student?.Marks ?? new List<int>();
+            return student.Marks ?? new List<int>();
         }
 
         public static void updateStudent(Student student)
         {
-            Student studentToUpdate = students.SingleOrDefault(s => s.Id == student.Id);
+            Student? studentToUpdate = students.SingleOrDefault(s => s.Id == student.Id);
 
             if (studentToUpdate != null)
             {

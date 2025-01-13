@@ -14,16 +14,23 @@ namespace StudentManagementWebApp.Components.Pages
         private List<string> Subjects = StudentManager.Subjects;
         private Dictionary<string, int> SubjectMarks = new Dictionary<string, int>();
 
-        
+        private Student st;
+        private int id;
+
 
         protected override void OnInitialized()
         {
+
             foreach(var subject in StudentManager.Subjects)
             {
                 SubjectMarks[subject] = 0;
             }
             student = new Student()!;
-            Marks = new List<int>();    
+            Marks = new List<int>();
+            st = StudentManager.students.LastOrDefault();
+            id = st != null ? st.Id + 1 : 1; 
+            student.Id = id;
+
         }
 
         private void HandleValidSubmit()

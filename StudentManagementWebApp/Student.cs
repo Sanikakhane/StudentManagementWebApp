@@ -1,13 +1,10 @@
-﻿
-
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace StudentManagementWebApp
 {
     public class Student
     {
-        [Required(ErrorMessage = "Student ID is required.")]
-        [Range(1, int.MaxValue, ErrorMessage = "Student ID must be a positive number.")]
+        
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Student name is required.")]
